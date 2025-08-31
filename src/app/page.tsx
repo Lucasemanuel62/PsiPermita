@@ -10,8 +10,8 @@ export default function Home() {
       <NavBar />
       <main className="flex-1">
         <TelaInicio />
-        <CardSobre />
         <Funcionamento />
+        <CardSobre />
       </main>
       <Footer />
     </div>

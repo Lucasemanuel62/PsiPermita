@@ -95,7 +95,7 @@ export default function Footer() {
                             <p>&copy; 2024 PsiPermita. Todos os direitos reservados.</p>
                         </div>
                         <div className="flex space-x-6 text-sm">
-                            <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
+                            <a href="/politicadeprivacidade" className="text-gray-400 hover:text-blue-400 transition-colors">
                                 Política de Privacidade
                             </a>
                             <Link href="/termos" className="text-gray-400 hover:text-blue-400 transition-colors">
