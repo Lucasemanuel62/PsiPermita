@@ -1,6 +1,8 @@
 import Link from "next/link"
 
 export default function Footer() {
+
+    let year = new Date().getFullYear()
     return (
         <footer className="bg-gray-900 text-white relative z-10 mt-16">
             {/* Aviso de Emergência - Destaque */}
@@ -92,7 +94,7 @@ export default function Footer() {
                 <div className="border-t border-gray-700 mt-8 pt-8">
                     <div className="flex flex-col md:flex-row justify-between items-center">
                         <div className="text-gray-400 text-sm mb-4 md:mb-0">
-                            <p>&copy; 2024 PsiPermita. Todos os direitos reservados.</p>
+                            <p>&copy; {year} PsiPermita. Todos os direitos reservados.</p>
                         </div>
                         <div className="flex space-x-6 text-sm">
                             <a href="/politicadeprivacidade" className="text-gray-400 hover:text-blue-400 transition-colors">
