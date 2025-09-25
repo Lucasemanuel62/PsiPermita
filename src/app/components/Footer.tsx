@@ -13,7 +13,7 @@ export default function Footer() {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
                         </svg>
                         <p className="font-semibold text-lg">
-                            Se estiver em crise emocional ou emergência em saúde mental, procure ajuda agora: ligue 192 (SAMU) ou vá ao hospital mais próximo.
+                            Em caso de crise ou emergência psicológica, procure ajuda agora: ligue 192 (SAMU) ou vá ao hospital mais próximo.
                         </p>
                     </div>
                     <div className="mt-2 text-sm">
@@ -24,9 +24,9 @@ export default function Footer() {
 
             {/* Conteúdo Principal do Footer */}
             <div className="max-w-6xl mx-auto px-4 py-12">
-                <div className="grid md:grid-cols-4 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                     {/* Sobre o PsiPermita */}
-                    <div className="md:col-span-2">
+                    <div className="md:col-span-2 mb-8 md:mb-0">
                         <h3 className="text-2xl font-bold text-blue-400 mb-4">PsiPermita</h3>
                         <p className="text-gray-300 mb-4 max-w-md">
                             Plataforma de busca e conexão que facilita o encontro entre pacientes e psicólogos qualificados.
@@ -51,42 +51,45 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    {/* Links Rápidos */}
-                    <div>
-                        <h4 className="text-lg font-semibold mb-4 text-blue-400">Links Rápidos</h4>
-                        <ul className="space-y-2">
-                            <li>
-                                <Link href="/" className="text-gray-300 hover:text-blue-400 transition-colors">
-                                    Início
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/sobre" className="text-gray-300 hover:text-blue-400 transition-colors">
-                                    Sobre Nós
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/agendamento" className="text-gray-300 hover:text-blue-400 transition-colors">
-                                    Encontrar Psicólogos
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/contato" className="text-gray-300 hover:text-blue-400 transition-colors">
-                                    Contato
-                                </Link>
-                            </li>
-                        </ul>
-                    </div>
+                    {/* Links Rápidos e Informações lado a lado no mobile */}
+                    <div className="grid grid-cols-2 md:grid-cols-1 gap-8 md:gap-0 md:contents">
+                        {/* Links Rápidos */}
+                        <div className="md:col-start-3">
+                            <h4 className="text-lg font-semibold mb-4 text-blue-400">Links Rápidos</h4>
+                            <ul className="space-y-2">
+                                <li>
+                                    <Link href="/" className="text-gray-300 hover:text-blue-400 transition-colors">
+                                        Início
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/sobre" className="text-gray-300 hover:text-blue-400 transition-colors">
+                                        Sobre Nós
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/agendamento" className="text-gray-300 hover:text-blue-400 transition-colors">
+                                        Encontrar Psicólogos
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/contato" className="text-gray-300 hover:text-blue-400 transition-colors">
+                                        Contato
+                                    </Link>
+                                </li>
+                            </ul>
+                        </div>
 
-                    {/* Informações Importantes */}
-                    <div>
-                        <h4 className="text-lg font-semibold mb-4 text-blue-400">Informações</h4>
-                        <ul className="space-y-2 text-sm text-gray-300">
-                            <li>• Psicólogos verificados</li>
-                            <li>• Consultas particulares</li>
-                            <li>• Sem cadastro obrigatório</li>
-                            <li>• Conexão direta</li>
-                        </ul>
+                        {/* Informações Importantes */}
+                        <div className="md:col-start-4">
+                            <h4 className="text-lg font-semibold mb-4 text-blue-400">Informações</h4>
+                            <ul className="space-y-2 text-sm text-gray-300">
+                                <li>• Psicólogos verificados</li>
+                                <li>• Consultas particulares</li>
+                                <li>• Sem cadastro obrigatório</li>
+                                <li>• Conexão direta</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
