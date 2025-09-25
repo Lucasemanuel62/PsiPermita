@@ -2,7 +2,7 @@ import Link from "next/link"
 
 export default function Footer() {
 
-    let year = new Date().getFullYear()
+    const year = new Date().getFullYear()
     return (
         <footer className="bg-gray-900 text-white relative z-10 mt-16">
             {/* Aviso de Emergência - Destaque */}
