@@ -96,17 +96,17 @@ const PsychologistCard: FC<PsychologistCardProps> = ({
             </div>
 
             {/* Botão de contato */}
-            <div className="flex items-center justify-between mt-4">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-4">
                 <a
                     href={`https://wa.me/${whatsapp.replace(/\D/g, "")}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-green-500 text-white px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-green-600 transition"
+                    className="bg-green-500 text-white px-4 py-2 rounded-lg flex items-center justify-center gap-2 hover:bg-green-600 transition"
                 >
                     Quero me consultar
                     <PhoneIcon className="w-4 h-4" />
                 </a>
-                <span className="text-green-600 text-sm">Telefone: {whatsapp}</span>
+                <span className="text-green-600 text-sm text-center sm:text-left">Telefone: {whatsapp}</span>
             </div>
         </div>
     )
