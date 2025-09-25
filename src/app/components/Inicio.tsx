@@ -4,7 +4,7 @@ import Image from 'next/image';
 export default function TelaInicio() {
 
     return (
-        <section className="relative min-h-screen w-full mt-16 overflow-hidden">
+        <section className="relative min-h-screen w-full overflow-hidden">
             {/* Imagem desktop (lg para cima) */}
             <div className="hidden lg:block absolute inset-0 w-full h-full">
                 <Image
@@ -12,7 +12,6 @@ export default function TelaInicio() {
                     alt="Background"
                     fill
                     sizes="100vw"
-                    className="object-cover object-center"
                     priority
                     quality={90}
                 />

@@ -3,24 +3,29 @@ import { useRouter, usePathname } from "next/navigation"
 import Image from 'next/image';
 import { useState } from 'react';
 
+const navLinks = [
+    { href: '/', label: 'Nossa missão' },
+    { href: '/agendamento', label: 'Psicólogos' },
+    { href: '/contato', label: 'Contato' },
+    { href: '/sobre', label: 'Sobre' },
+];
 
 export default function NavBar() {
-    const router = useRouter()
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-    const pathname = usePathname()
-    const isActive = (href: string) => pathname === href
-    const linkBase = "text-base transition-colors"
-    const linkActive = "border-b-2 border-black pb-0.5"
-    const linkIdle = "hover:underline underline-offset-4 decoration-2"
+    const router = useRouter();
+    const pathname = usePathname();
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+    const isActive = (href: string) => pathname === href;
 
     return (
-        <header className="fixed top-0 inset-x-0 z-50 bg-white">
-            <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Menu principal">
-                <div className="flex h-16 items-center justify-between">
+        <header className="fixed top-0 inset-x-0 z-50 bg-white shadow-sm">
+            <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div className="flex h-14 items-center justify-between">
+                    {/* Logo */}
                     <div className="flex items-center">
                         <button
                             type="button"
-                            className="focus-visible:outline-none focus-visible:ring-2 rounded"
+                            className="focus-visible:outline-none focus-visible:ring-2 rounded transition-transform hover:scale-105"
                             onClick={() => router.push('/')}
                             aria-label="Ir para início"
                         >
@@ -36,120 +41,99 @@ export default function NavBar() {
                         </button>
                     </div>
 
-                    <div className="hidden md:flex md:items-center md:gap-10 font-semibold text-black">
-                        <button
-                            type="button"
-                            className={`${linkBase} ${isActive('/') ? linkActive : linkIdle}`}
-                            onClick={() => router.push('/')}
-                            aria-current={isActive('/') ? 'page' : undefined}
-                        >
-                            Nossa missão
-                        </button>
-                        <button
-                            type="button"
-                            className={`${linkBase} ${isActive('/agendamento') ? linkActive : linkIdle}`}
-                            onClick={() => router.push('/agendamento')}
-                            aria-current={isActive('/agendamento') ? 'page' : undefined}
-                        >
-                            Psicólogos
-                        </button>
-                        <button
-                            type="button"
-                            className={`${linkBase} ${isActive('/contato') ? linkActive : linkIdle}`}
-                            onClick={() => router.push('/contato')}
-                            aria-current={isActive('/profissionais') ? 'page' : undefined}
-                        >
-                            Contato
-                        </button>
-                        <button
-                            type="button"
-                            className={`${linkBase} ${isActive('/sobre') ? linkActive : linkIdle}`}
-                            onClick={() => router.push('/sobre')}
-                            aria-current={isActive('/sobre') ? 'page' : undefined}
-                        >
-                            Sobre
-                        </button>
+                    {/* Desktop: Links */}
+                    <div className="hidden lg:flex lg:items-center lg:gap-10 font-semibold text-black">
+                        {navLinks.map(link => (
+                            <button
+                                key={link.href}
+                                type="button"
+                                className={`relative px-2 py-1 transition-colors duration-200 ${isActive(link.href)
+                                    ? 'text-blue-600 after:absolute after:left-0 after:bottom-0 after:w-full after:h-0.5 after:bg-blue-600 after:rounded-full'
+                                    : 'hover:text-blue-500'
+                                    }`}
+                                onClick={() => router.push(link.href)}
+                                aria-current={isActive(link.href) ? 'page' : undefined}
+                            >
+                                {link.label}
+                            </button>
+                        ))}
                     </div>
 
-                    {/* CTA Desktop */}
-                    <div className="hidden md:flex">
+                    {/* Desktop: CTA */}
+                    <div className="hidden lg:flex">
                         <button
                             type="button"
                             aria-label="Agendar consulta"
                             onClick={() => router.push('/agendamento')}
-                            className="inline-flex items-center justify-center bg-yellow-500 border border-black py-1 text-black font-semibold px-5 rounded-lg shadow-md transition-all duration-300 ease-out hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#026773]/60"
+                            className="inline-flex items-center justify-center bg-gradient-to-r from-yellow-400 to-yellow-500 border border-black py-2 text-black font-semibold px-5 rounded-lg shadow-md transition-all duration-300 ease-out hover:shadow-lg hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#026773]/60"
                         >
                             Agendar agora
                         </button>
                     </div>
 
-                    <div className="md:hidden flex items-center">
+                    {/* Mobile + Tablet: hamburguer */}
+                    <div className="lg:hidden">
                         <button
                             type="button"
                             className="inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#026773]/60"
                             aria-controls="menu-mobile"
                             aria-expanded={isMobileMenuOpen}
-                            aria-label="Abrir menu"
-                            onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+                            aria-label={isMobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}
+                            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         >
-                            <span className="sr-only">Abrir menu</span>
-                            <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" aria-hidden="true">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                            </svg>
+                            <span className="sr-only">{isMobileMenuOpen ? 'Fechar' : 'Abrir'} menu</span>
+                            {!isMobileMenuOpen ? (
+                                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                                </svg>
+                            ) : (
+                                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            )}
                         </button>
                     </div>
                 </div>
             </nav>
 
-            {/* Mobile menu */}
-            <div id="menu-mobile" className={`${isMobileMenuOpen ? 'block' : 'hidden'} md:hidden border-t border-gray-200 bg-white`}>
-                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
-                    <div className="flex flex-col gap-2">
-                        {/* CTA Mobile */}
-                        <button
-                            type="button"
-                            aria-label="Agendar consulta"
-                            onClick={() => { setIsMobileMenuOpen(false); router.push('/agendamento') }}
-                            className="w-full inline-flex items-center justify-center bg-gradient-to-r from-[#012030] to-[#026773] hover:from-[#013746] hover:to-[#038492] text-white font-semibold px-4 py-3 rounded-lg shadow-md transition-all duration-300 ease-out hover:shadow-lg"
-                        >
-                            Agendar
-                        </button>
-                        <button
-                            type="button"
-                            className={`w-full text-left px-2 py-3 rounded-md font-semibold text-gray-900 hover:bg-gray-100 ${isActive('/') ? 'border-b-2 border-black' : ''}`}
-                            onClick={() => { setIsMobileMenuOpen(false); router.push('/') }}
-                            aria-current={isActive('/') ? 'page' : undefined}
-                        >
-                            Nossa missão
-                        </button>
-                        <button
-                            type="button"
-                            className={`w-full text-left px-2 py-3 rounded-md font-semibold text-gray-900 hover:bg-gray-100 ${isActive('/agendamento') ? 'border-b-2 border-black' : ''}`}
-                            onClick={() => { setIsMobileMenuOpen(false); router.push('/agendamento') }}
-                            aria-current={isActive('/agendamento') ? 'page' : undefined}
-                        >
-                            Psicólogos
-                        </button>
-                        <button
-                            type="button"
-                            className={`w-full text-left px-2 py-3 rounded-md font-semibold text-gray-900 hover:bg-gray-100 ${isActive('/profissionais') ? 'border-b-2 border-black' : ''}`}
-                            onClick={() => { setIsMobileMenuOpen(false); router.push('/profissionais') }}
-                            aria-current={isActive('/profissionais') ? 'page' : undefined}
-                        >
-                            Contato
-                        </button>
-                        <button
-                            type="button"
-                            className={`w-full text-left px-2 py-3 rounded-md font-semibold text-gray-900 hover:bg-gray-100 ${isActive('/sobre') ? 'border-b-2 border-black' : ''}`}
-                            onClick={() => { setIsMobileMenuOpen(false); router.push('/sobre') }}
-                            aria-current={isActive('/sobre') ? 'page' : undefined}
-                        >
-                            Sobre
-                        </button>
+            {/* Mobile + Tablet menu */}
+            {isMobileMenuOpen && (
+                <div className="lg:hidden bg-white border-t border-gray-200 shadow-lg">
+                    <div className="px-4 py-3 space-y-1">
+                        {navLinks.map(link => (
+                            <button
+                                key={link.href}
+                                type="button"
+                                className={`block w-full text-left px-3 py-2 rounded-md font-semibold transition-colors ${isActive(link.href)
+                                    ? 'text-blue-600 bg-blue-50 border-l-4 border-blue-600'
+                                    : 'text-gray-900 hover:bg-gray-100'
+                                    }`}
+                                onClick={() => {
+                                    setIsMobileMenuOpen(false);
+                                    router.push(link.href);
+                                }}
+                                aria-current={isActive(link.href) ? 'page' : undefined}
+                            >
+                                {link.label}
+                            </button>
+                        ))}
+                        <div className="pt-2">
+                            <button
+                                type="button"
+                                aria-label="Agendar consulta"
+                                onClick={() => {
+                                    setIsMobileMenuOpen(false);
+                                    router.push('/agendamento');
+                                }}
+                                className="w-full inline-flex items-center justify-center bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-semibold px-4 py-3 rounded-lg shadow-md transition-all duration-300 ease-out hover:shadow-lg"
+                            >
+                                Agendar agora
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            )}
         </header>
-    )
+    );
 }
 
