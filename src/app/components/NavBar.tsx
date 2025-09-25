@@ -29,6 +29,7 @@ export default function NavBar() {
                                 alt="imagem da logo"
                                 width={160}
                                 height={50}
+                                style={{ height: 'auto' }}
                                 className="relative bottom-1"
                                 priority
                             />

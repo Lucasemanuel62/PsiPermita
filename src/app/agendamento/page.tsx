@@ -62,6 +62,7 @@ const PsychologistCard: FC<PsychologistCardProps> = ({
                     alt={name}
                     width={80}
                     height={80}
+                    style={{ height: 'auto' }}
                     className="rounded-full object-cover"
                 />
                 <div className="flex flex-col">
