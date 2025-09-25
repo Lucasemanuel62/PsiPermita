@@ -1,6 +1,5 @@
 import NavBar from "./components/NavBar"
 import TelaInicio from "./components/Inicio"
-import CardSobre from "./components/CardSobre"
 import Funcionamento from "./components/funcionamento"
 import Footer from "./components/Footer"
 
@@ -11,7 +10,6 @@ export default function Home() {
       <main className="flex-1">
         <TelaInicio />
         <Funcionamento />
-        <CardSobre />
       </main>
       <Footer />
     </div>
