@@ -54,18 +54,18 @@ const PsychologistCard: FC<PsychologistCardProps> = ({
             <div className="flex items-center gap-4">
                 <Image
                     src={photo}
-                    alt={name}
+                    alt={`Foto do psicólogo ${name}`}
                     width={80}
                     height={80}
-                    style={{ height: 'auto' }}
                     className="rounded-full object-cover"
+                    quality={85}
                 />
                 <div className="flex flex-col">
                     <h2 className="text-xl font-semibold">{name}</h2>
                     <span className="text-gray-600">Psicólogo(a)</span>
                     <span className="text-sm text-gray-500">CRP: {crp}</span>
                 </div>
-                <div className="ml-auto bg-gray-100 px-3 py-1 rounded-full text-sm font-medium">
+                <div className="ml-auto bg-[#6DBFB8]/10 px-4 py-2 rounded-full text-sm font-semibold text-[#6DBFB8]">
                     R${price}
                 </div>
             </div>
@@ -75,7 +75,7 @@ const PsychologistCard: FC<PsychologistCardProps> = ({
                 {specialties.map((item, index) => (
                     <span
                         key={index}
-                        className="text-xs font-medium px-3 py-1 rounded-full bg-[#012030]/10 text-[#012030] ring-1 ring-[#012030]/20"
+                        className="text-xs font-semibold px-3 py-1.5 rounded-full bg-[#6DBFB8]/10 text-[#6DBFB8] ring-1 ring-[#6DBFB8]/30"
                     >
                         {item}
                     </span>
@@ -101,12 +101,13 @@ const PsychologistCard: FC<PsychologistCardProps> = ({
                     href={`https://wa.me/${whatsapp.replace(/\D/g, "")}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-green-500 text-white px-4 py-2 rounded-lg flex items-center justify-center gap-2 hover:bg-green-600 transition"
+                    aria-label={`Entrar em contato com ${name} via WhatsApp`}
+                    className="bg-green-500 text-white px-6 py-3 min-h-[48px] rounded-xl flex items-center justify-center gap-2 hover:bg-green-600 transition-all duration-300 hover:shadow-lg focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:outline-none font-semibold"
                 >
                     Quero me consultar
-                    <PhoneIcon className="w-4 h-4" />
+                    <PhoneIcon className="w-5 h-5" />
                 </a>
-                <span className="text-green-600 text-sm text-center sm:text-left">Telefone: {whatsapp}</span>
+                <span className="text-green-600 text-sm text-center sm:text-left font-medium">Telefone: {whatsapp}</span>
             </div>
         </div>
     )

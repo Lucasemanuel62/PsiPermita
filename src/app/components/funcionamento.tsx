@@ -37,11 +37,11 @@ export default function Funcionamento() {
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header */}
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                         Como funciona o
-                        <span className="text-blue-600 block">PsiPermita</span>
+                        <span className="text-[#6DBFB8] block mt-2">PsiPermita</span>
                     </h2>
-                    <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                    <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
                         Conectamos você aos melhores psicólogos da sua região de forma simples e segura.
                     </p>
                 </div>
@@ -50,11 +50,11 @@ export default function Funcionamento() {
                 <div className="grid sm:grid-cols-3 gap-8 mb-16">
                     {steps.map((step, index) => (
                         <div key={index} className="text-center">
-                            <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                                <span className="text-3xl">{step.icon}</span>
+                            <div className="w-20 h-20 bg-gradient-to-br from-[#6DBFB8] to-[#5AADA6] rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                                <span className="text-3xl" role="img" aria-label={step.title}>{step.icon}</span>
                             </div>
                             <div className="mb-3">
-                                <span className="text-sm font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
+                                <span className="text-sm font-bold text-[#6DBFB8] bg-[#6DBFB8]/10 px-3 py-1 rounded-full">
                                     {step.number}
                                 </span>
                             </div>
@@ -76,25 +76,26 @@ export default function Funcionamento() {
                     <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                         {differentials.map((item, index) => (
                             <div key={index} className="text-center p-4">
-                                <div className="text-4xl mb-4">{item.icon}</div>
+                                <div className="text-4xl mb-4" role="img" aria-label={item.title}>{item.icon}</div>
                                 <h4 className="font-bold text-gray-900 mb-2">{item.title}</h4>
-                                <p className="text-gray-600 text-sm">{item.text}</p>
+                                <p className="text-gray-600 text-sm leading-relaxed">{item.text}</p>
                             </div>
                         ))}
                     </div>
                 </div>
 
                 {/* CTA Section */}
-                <div className="text-center bg-gradient-to-r from-blue-600 to-indigo-600 rounded-3xl p-12 text-white">
-                    <h3 className="text-3xl font-bold mb-4">
+                <div className="text-center bg-gradient-to-r from-[#6DBFB8] to-[#5AADA6] rounded-3xl p-12 text-white shadow-2xl">
+                    <h3 className="text-3xl md:text-4xl font-bold mb-4">
                         Encontre seu psicólogo ideal
                     </h3>
-                    <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+                    <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
                         Comece sua jornada de bem-estar hoje mesmo. É grátis e sem compromisso.
                     </p>
                     <button
                         onClick={() => router.push('/agendamento')}
-                        className="bg-white text-blue-600 font-bold py-4 px-8 rounded-xl hover:bg-gray-50 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                        aria-label="Buscar psicólogos disponíveis"
+                        className="bg-white text-[#6DBFB8] font-bold py-4 px-8 rounded-xl hover:bg-gray-50 transition-all duration-300 transform hover:scale-105 shadow-lg focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#6DBFB8] focus:outline-none min-h-[48px]"
                     >
                         Buscar Psicólogos
                     </button>

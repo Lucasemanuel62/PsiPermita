@@ -65,7 +65,7 @@ export default function NavBar() {
                             type="button"
                             aria-label="Agendar consulta"
                             onClick={() => router.push('/agendamento')}
-                            className=" bg-[#6DBFB8] hover:bg-blue-200 text-black font-semibold px-3 py-1 rounded-xl shadow-md hover:shadow-lg transition-all duration-200 focus:ring-2 focus:ring-blue-300 focus:outline-none"
+                            className="bg-[#6DBFB8] hover:bg-[#5AADA6] text-white font-semibold px-6 py-2.5 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 focus:ring-2 focus:ring-[#6DBFB8] focus:ring-offset-2 focus:outline-none transform hover:scale-105"
                         >
                             Agendar agora!
                         </button>
@@ -75,7 +75,7 @@ export default function NavBar() {
                     <div className="lg:hidden">
                         <button
                             type="button"
-                            className="inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#026773]/60"
+                            className="inline-flex items-center justify-center rounded-md p-3 min-w-[48px] min-h-[48px] text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6DBFB8] focus-visible:ring-offset-2 transition-colors"
                             aria-controls="menu-mobile"
                             aria-expanded={isMobileMenuOpen}
                             aria-label={isMobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}
@@ -83,11 +83,11 @@ export default function NavBar() {
                         >
                             <span className="sr-only">{isMobileMenuOpen ? 'Fechar' : 'Abrir'} menu</span>
                             {!isMobileMenuOpen ? (
-                                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+                                <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                                 </svg>
                             ) : (
-                                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+                                <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                                 </svg>
                             )}
@@ -99,13 +99,13 @@ export default function NavBar() {
             {/* Mobile + Tablet menu */}
             {isMobileMenuOpen && (
                 <div className="lg:hidden bg-white border-t border-gray-200 shadow-lg">
-                    <div className="px-4 py-3 space-y-1">
+                    <div className="px-4 py-3 space-y-2">
                         {navLinks.map(link => (
                             <button
                                 key={link.href}
                                 type="button"
-                                className={`block w-full text-left px-3 py-2 rounded-md font-semibold transition-colors ${isActive(link.href)
-                                    ? 'text-blue-600 bg-blue-50 border-l-4 border-blue-600'
+                                className={`block w-full text-left px-4 py-3 min-h-[48px] rounded-md font-semibold transition-colors ${isActive(link.href)
+                                    ? 'text-[#6DBFB8] bg-teal-50 border-l-4 border-[#6DBFB8]'
                                     : 'text-gray-900 hover:bg-gray-100'
                                     }`}
                                 onClick={() => {
@@ -125,9 +125,9 @@ export default function NavBar() {
                                     setIsMobileMenuOpen(false);
                                     router.push('/agendamento');
                                 }}
-                                className="w-full inline-flex items-center justify-center bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-semibold px-4 py-3 rounded-lg shadow-md transition-all duration-300 ease-out hover:shadow-lg"
+                                className="w-full inline-flex items-center justify-center bg-[#6DBFB8] hover:bg-[#5AADA6] text-white font-semibold px-4 py-3 rounded-xl shadow-md transition-all duration-300 hover:shadow-xl focus:ring-2 focus:ring-[#6DBFB8] focus:ring-offset-2 focus:outline-none"
                             >
-                                Agendar agora
+                                Agendar agora!
                             </button>
                         </div>
                     </div>

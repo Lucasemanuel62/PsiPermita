@@ -1,6 +1,7 @@
 import NavBar from "./components/NavBar"
 import TelaInicio from "./components/Inicio"
 import Funcionamento from "./components/funcionamento"
+import Testemunhos from "./components/Testemunhos"
 import Footer from "./components/Footer"
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
       <main className="flex-1">
         <TelaInicio />
         <Funcionamento />
+        <Testemunhos />
       </main>
       <Footer />
     </div>
