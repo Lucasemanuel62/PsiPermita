@@ -8,7 +8,6 @@ import Footer from "../components/Footer"
 export default function Agendamento() {
     const [searchTerm, setSearchTerm] = useState("")
 
-    // Dados dos psicólogos memoizados para evitar recriação
     const psychologists = useMemo(() => [
         {
             name: "Ana Luiza",

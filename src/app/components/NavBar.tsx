@@ -42,7 +42,7 @@ export default function NavBar() {
                     </div>
 
                     {/* Desktop: Links */}
-                    <div className="hidden lg:flex lg:items-center lg:gap-10 font-semibold text-black">
+                    <div className="hidden font-semibold lg:flex lg:items-center lg:gap-10 text-black">
                         {navLinks.map(link => (
                             <button
                                 key={link.href}
@@ -65,9 +65,9 @@ export default function NavBar() {
                             type="button"
                             aria-label="Agendar consulta"
                             onClick={() => router.push('/agendamento')}
-                            className="inline-flex items-center justify-center bg-gradient-to-r from-yellow-400 to-yellow-500 border border-black py-2 text-black font-semibold px-5 rounded-lg shadow-md transition-all duration-300 ease-out hover:shadow-lg hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#026773]/60"
+                            className=" bg-[#6DBFB8] hover:bg-blue-200 text-black font-semibold px-3 py-1 rounded-xl shadow-md hover:shadow-lg transition-all duration-200 focus:ring-2 focus:ring-blue-300 focus:outline-none"
                         >
-                            Agendar agora
+                            Agendar agora!
                         </button>
                     </div>
 

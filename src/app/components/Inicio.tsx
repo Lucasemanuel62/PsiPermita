@@ -41,20 +41,15 @@ export default function TelaInicio() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/70 pointer-events-none"></div>
             </div>
-            {/* Conteúdo */}
-            <div className="relative z-10 flex flex-col items-center justify-center min-h-screen w-full p-10 text-center text-white">
-                <h1 className="text-5xl md:text-7xl font-light mb-6 animate-fade-in leading-tight">
+
+            <div className="relative z-10 flex flex-col items-center justify-center min-h-screen w-full text-center text-white">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light animate-fade-in leading-tight">
                     <span className="font-semibold">Aqui...</span>
                 </h1>
 
-                <p className="text-xl md:text-2xl mb-8 font-light opacity-95 max-w-2xl mx-auto animate-fade-in [animation-delay:200ms]">
-                    Acreditamos que é sobre se sentir bem no espaço
-                    que acolhe para transformar e cuidar para florecer.
+                <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold font-light opacity-95 max-w-2xl lg:max-w-4xl mx-auto animate-fade-in [animation-delay:200ms]">
+                    Acreditamos que bem-estar o começa em um espaço que acolhe, cuida e possibilita a transformação.
                 </p>
-
-                <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in [animation-delay:400ms]">
-                    {/* Botões ou outros conteúdos */}
-                </div>
             </div>
         </section>
     );
